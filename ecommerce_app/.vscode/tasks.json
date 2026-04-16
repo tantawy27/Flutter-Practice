@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Scrcpy",
+      "type": "shell",
+      "command": "scrcpy --always-on-top",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      
+    },
+  
+ 
+    {
+      "type": "flutter",
+      "command": "flutter",
+      "args": [
+        "build",
+        "aar"
+      ],
+      "group": "build",
+      "problemMatcher": [],
+      "label": "flutter: flutter build aar",
+      "detail": ""
+    }
+  ]
+}
