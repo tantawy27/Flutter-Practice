@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/details.dart';
 import 'package:flutter/material.dart';
 
 
@@ -38,14 +39,24 @@ List best_selling=[
   {"image":"images/watch.png",
   "title":"Rolex Watch",
   "subtitle":"MF MINI FOCUS Mens  Watch",
-  "price":"250\$"}
+  "price":"350\$"}
   
   
   ,
   {"image":"images/headset.png",
   "title":"Logitech Headset",
   "subtitle":"Logitech G335 Wired Gaming Headset",
-  "price":"100\$"}
+  "price":"100\$"},
+
+    {"image":"images/iphone.png",
+  "title":"iPhone 17 Pro Max",
+  "subtitle":"Apple iPhone 17 Pro Max,(256 GB),eSIM",
+  "price":"1800\$"}
+  ,
+  {"image":"images/Asus_laptop.png",
+  "title":"ASUS ROG Strix G16",
+  "subtitle":"AMD Ryzen™ 9 8940HX /16GB DDR5 ",
+  "price":"600\$"}
 ];
 
 
@@ -54,6 +65,15 @@ List best_selling=[
 @override
 Widget build (BuildContext context) {
 return Scaffold(
+   bottomNavigationBar: BottomNavigationBar(
+    iconSize: 30,   
+    selectedItemColor: Colors.orange, 
+    items: [
+    BottomNavigationBarItem(icon:Icon(Icons.home_outlined),label: "*"),
+    BottomNavigationBarItem(icon:Icon(Icons.shopping_bag_rounded),label:"*" ),
+    BottomNavigationBarItem(icon:Icon(Icons.person_2_outlined),label:"*" ),
+  ]),
+
   body: Container(
   padding: EdgeInsets.symmetric (horizontal: 20, vertical: 20),
   child:
@@ -120,37 +140,41 @@ return Scaffold(
       itemCount: best_selling.length,
       physics:NeverScrollableScrollPhysics(),
       shrinkWrap:true,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisExtent: 280),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisExtent: 260),
       itemBuilder:(context,i){
-        return Card(
 
 
-          child:
-            Column(
-            crossAxisAlignment:CrossAxisAlignment.start,
-              
-            children: [
-             Container(
-              padding: EdgeInsets.all(15),
-              width: 200,
-              color: const Color.fromARGB(255, 238, 237, 237),
-              child: Image.asset(best_selling[i]["image"],height: 140,fit:BoxFit.fill),
-              
+        return InkWell(
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder:(context) => ItemDetails(dataitems: best_selling[i],),));
+          } ,
+                        
+            child: Card(
+                 
+            child:
+              Column(
+              crossAxisAlignment:CrossAxisAlignment.start, 
+              children: [
+               Container(
+                padding: EdgeInsets.all(15),
+                width: 200,
+                color: const Color.fromARGB(255, 238, 237, 237),
+                child: Image.asset(best_selling[i]["image"],height: 140,fit:BoxFit.fill),
+              ), 
+              Text(best_selling[i]["title"],style:TextStyle(fontWeight: FontWeight.bold),),
+              Container(height: 1,),
+              Text(best_selling[i]["subtitle"],style: TextStyle(fontSize: 13,color: Colors.grey),),
+              Container(height: 3,),
+              Text(best_selling[i]["price"],style: TextStyle(fontSize: 13,color: Colors.orange,fontWeight: FontWeight.bold),)
+            ], 
             ),
-            
-            Text(best_selling[i]["title"],style:TextStyle(fontWeight: FontWeight.bold),),
-            Container(height: 1,),
-            Text(best_selling[i]["subtitle"],style: TextStyle(fontSize: 13,color: Colors.grey),),
-            Container(height: 3,),
-            Text(best_selling[i]["price"],style: TextStyle(fontSize: 13,color: Colors.orange,fontWeight: FontWeight.bold),)
-          ], 
           ),
         );
       }
 
       ),
-      
-        
+             
 
        
       ],
