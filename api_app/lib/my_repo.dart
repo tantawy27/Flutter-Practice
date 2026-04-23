@@ -12,4 +12,17 @@ var response = await webServices.getAllUsers();
 
 return response.map((singleUserDataFromJson) => User.fromJson(singleUserDataFromJson.toJson())).toList();
 }
+
+//dont need to make anthor class to get one user
+
+Future<User> getUserById(int userId) async {
+var response = await webServices.getUserById(userId);
+
+return User.fromJson(response.toJson());
+}
+
+
+
+
+
 } 

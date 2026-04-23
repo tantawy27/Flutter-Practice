@@ -12,9 +12,14 @@ factory WebServices(Dio dio, {String? baseUrl}) = _WebServices;
   
 
 
-@GET('users')   //path
+@GET('users')   
 
 Future<List<User>> getAllUsers();
+  
+
+  @GET('users/{id}')   //path
+
+  Future<User>getUserById(@Path() int id);
   
   
 
