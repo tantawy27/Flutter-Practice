@@ -30,5 +30,12 @@ void emitCreateNewUser(User newUser) {
 
 }
 
+void emitDeleteUser(String id) {
+  myRepo.deleteUser(id).then((data) {
+  emit( DeleteUser(data));
+});
+
+}
+
 
   }

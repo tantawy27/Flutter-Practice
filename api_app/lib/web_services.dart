@@ -26,6 +26,11 @@ Future<List<User>> getAllUsers();
   @POST('users')   //body
   Future<User> createNewUser(@Body() User newUser,@Header('Authorization') String token);
   
+
+  @DELETE('users/{id}')
+
+  Future<dynamic> deleteUser(@Path() String id,@Header('Authorization') String token);
+
   
 
 

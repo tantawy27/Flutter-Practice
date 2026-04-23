@@ -24,8 +24,14 @@ return User.fromJson(response.toJson());
 Future<User> createNewUser(User newUser) async {
 return await webServices.createNewUser(newUser,' Bearer a5207bde3b5d7dbbb41bcc8a025264f2fab475f5dfdbc1f682375edbf8d8566a');  
 
-
-
 } 
+
+Future<dynamic> deleteUser(String id) async {
+return await webServices.deleteUser(id,' Bearer a5207bde3b5d7dbbb41bcc8a025264f2fab475f5dfdbc1f682375edbf8d8566a');
+
+
+
+
+}
 
 }

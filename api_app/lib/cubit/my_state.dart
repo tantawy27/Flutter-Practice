@@ -18,7 +18,14 @@
  GetUserDetails(this.userDetails);
  }
 
-  class CreateNewUser extends MyState {
+ class CreateNewUser extends MyState {
  final User newUser;
  CreateNewUser(this.newUser);
  }
+
+
+ class DeleteUser extends MyState {
+ final dynamic data;
+ DeleteUser(this.data);
+ }
+
