@@ -1,17 +1,14 @@
-# api_app
+# 🚀 Flutter API Integration & Network Layer
 
-A new Flutter project.
+A professional Flutter project demonstrating advanced API integration techniques using **Dio**. This project focuses on building a robust network layer, handling asynchronous data fetching, and implementing clean debugging practices.
 
-## Getting Started
+## 🛠 Tech Stack & Tools
+* **Flutter & Dart**: Current SDK version 3.11.4+.
+* **Dio**: Used as the primary HTTP client for networking.
+* **Postman**: Utilized for API testing and endpoint documentation.
+* **Get_It**: Service Locator for Dependency Injection (DI).
+* **Cubit/Bloc**: Implementing State Management for a clean UI/Logic separation.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🔑 Key Features
+* **Custom Dio Configuration**: Centralized Dio instance with optimized settings.
+* **Automated Interceptors**: Integrated `LogInterceptor` to monitor requests, responses, and errors in real-time.
