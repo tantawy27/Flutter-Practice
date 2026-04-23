@@ -19,7 +19,14 @@ class _HomeUiState extends State<HomeUi> {
   void initState() {
   super.initState();
   //BlocProvider.of<MyCubit>(context).emitGetAllUsers();
-  BlocProvider.of<MyCubit>(context).emitGetUserDetails(8446860); // Replace 1 with the actual user ID
+  //BlocProvider.of<MyCubit>(context).emitGetUserDetails(8446860); // Replace 1 with the actual user ID
+    BlocProvider.of<MyCubit>(context).emitCreateNewUser(User(
+      name: 'Ahmed',
+      email:'AhmedTantawy@Test.com',
+      gender: 'male',
+      status: "Active"
+  )
+    );
   }
 
 
@@ -68,8 +75,8 @@ class _HomeUiState extends State<HomeUi> {
               
               BlocBuilder<MyCubit,MyState>(
             builder: (context, state) {
-              if (state is GetUserDetails) {
-                user = (state).userDetails;
+              if (state is CreateNewUser) {
+                user = (state).newUser;
                 return  Container(
               height: 50,
               color: const Color.fromARGB(255, 150, 101, 200),

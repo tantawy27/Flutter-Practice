@@ -13,9 +13,12 @@
  }
 
 
-  class GetUserDetails extends MyState {
-
+ class GetUserDetails extends MyState {
  final User userDetails;
-
  GetUserDetails(this.userDetails);
+ }
+
+  class CreateNewUser extends MyState {
+ final User newUser;
+ CreateNewUser(this.newUser);
  }

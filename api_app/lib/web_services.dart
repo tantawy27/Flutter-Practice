@@ -20,6 +20,11 @@ Future<List<User>> getAllUsers();
   @GET('users/{id}')   //path
 
   Future<User>getUserById(@Path() int id);
+
+
+
+  @POST('users')   //body
+  Future<User> createNewUser(@Body() User newUser,@Header('Authorization') String token);
   
   
 
