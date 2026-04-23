@@ -1,0 +1,16 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Scrcpy",
+      "type": "shell",
+      "command": "scrcpy --always-on-top",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      
+    }
+  ]
+}
