@@ -1,4 +1,6 @@
 import 'package:api_app/cubit/my_cubit.dart';
+import 'package:api_app/cubit/result_state.dart';
+import 'package:api_app/network_exceptions.dart';
 import 'package:api_app/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,15 +22,15 @@ class _HomeUiState extends State<HomeUi> {
   super.initState();
   //BlocProvider.of<MyCubit>(context).emitGetAllUsers();
   //BlocProvider.of<MyCubit>(context).emitGetUserDetails(8446860); // Replace 1 with the actual user ID
-/*     BlocProvider.of<MyCubit>(context).emitCreateNewUser(User(
+     BlocProvider.of<MyCubit>(context).emitCreateNewUser(User(
       name: 'Ahmed',
       email:'AhmedTantawy@Test.com',
       gender: 'male',
       status: "Active"
   )
-    ); */
+    );
 
-BlocProvider.of<MyCubit>(context).emitDeleteUser('8448072');
+//BlocProvider.of<MyCubit>(context).emitDeleteUser('8448072');
 
     
   }
@@ -77,8 +79,36 @@ BlocProvider.of<MyCubit>(context).emitDeleteUser('8448072');
 
 
               
-        /*       BlocBuilder<MyCubit,MyState>(
-            builder: (context, state) {
+              BlocBuilder<MyCubit,ResultState<User>>(
+
+            builder: (context,ResultState<User> state) {
+              return state.when(
+                idle:(){
+                return const Center(child: CircularProgressIndicator());},
+                loading:(){
+                return const Center(child: CircularProgressIndicator());},
+                success:(User userData ){
+                return Container(
+                  height: 50,
+                  color: Colors.limeAccent,
+                  child: Center(child: Text(userData.email.toString())
+                  ),
+                  );
+                  },
+
+                  error: (NetworkExceptions error){
+                 return Center(child: Text(NetworkExceptions.getErrorMessage(error))
+                );
+                },  
+              );
+              
+             },
+                             
+              )
+
+             /*    loading: loading,
+                success: success, 
+                error: error)
               if (state is CreateNewUser) {
                 user = (state).newUser;
                 return  Container(
@@ -87,8 +117,10 @@ BlocProvider.of<MyCubit>(context).emitDeleteUser('8448072');
               child: Center (child: Text (user.name.toString())
               )
               );
+              ); */
                 
-                
+
+                /*
                 
               }  
 
@@ -101,7 +133,7 @@ BlocProvider.of<MyCubit>(context).emitDeleteUser('8448072');
                })*/
 
 
-              BlocBuilder<MyCubit,MyState>(
+/*               BlocBuilder<MyCubit,MyState>(
             builder: (context, state) {
               if (state is DeleteUser) {
               return  Container(
@@ -110,18 +142,19 @@ BlocProvider.of<MyCubit>(context).emitDeleteUser('8448072');
               child: Center (child: Text ((state).data.toString())
               )
               );
-                
-                
-                
               }  
-
               else {
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
                  }
                  
-               })
+               }) */
+
+
+
+
+               
 
 
 
