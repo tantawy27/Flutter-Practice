@@ -5,21 +5,15 @@ void main() {
   runApp(GotApp(appRouter: AppRouter()));
 }
 
-
 class GotApp extends StatelessWidget {
   final AppRouter appRouter;
   const GotApp({super.key, required this.appRouter});
- 
 
-  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-           debugShowCheckedModeBanner: false,
-           onGenerateRoute: appRouter.generateRoute ,
-        );
-  
-
-
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: appRouter.generateRoute,
+    );
   }
 }
