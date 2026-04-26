@@ -23,7 +23,7 @@ class _HomeUiState extends State<HomeUi> {
   //BlocProvider.of<MyCubit>(context).emitGetAllUsers();
   //BlocProvider.of<MyCubit>(context).emitGetUserDetails(8446860); // Replace 1 with the actual user ID
      BlocProvider.of<MyCubit>(context).emitCreateNewUser(User(
-      name: 'Ahmed',
+      name: '',
       email:'AhmedTantawy@Test.com',
       gender: 'male',
       status: "Active"
