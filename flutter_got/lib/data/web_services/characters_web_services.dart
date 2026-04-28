@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_got/constants/strings.dart';
+
 
 class CharactersWebServices {
   late Dio dio;
@@ -8,20 +11,23 @@ class CharactersWebServices {
     BaseOptions options = BaseOptions(
       baseUrl: baseurl,
       receiveDataWhenStatusError: true,
-      connectTimeout: Duration(seconds: 60),
-      receiveTimeout: Duration(seconds: 60),
+      connectTimeout: Duration(seconds: 20),
+      receiveTimeout: Duration(seconds: 20),
     );
     dio = Dio(options);
   }
 
-  Future<List<dynamic>> getAllCharacters() async {
-    try {
-      Response response = await dio.get('characters'); //characters -> end point
-      print(response.data.toString());
-      return response.data;
-    } catch (e) {
+   Future<List<dynamic>> getAllCharacters () async {
+try{
+  Response response = await dio.get('characters');
+  print(response.data.toString());
+  return response.data ;
+  }catch(e){
       print(e.toString());
       return [];
+      }
     }
   }
-}
+
+
+
