@@ -11,3 +11,15 @@ class Charactersloaded extends CharactersState{
 
   Charactersloaded(this.characters);
 }
+
+
+
+
+class Quoteloaded extends CharactersState{
+  final Quote quote;
+
+  Quoteloaded(this.quote);
+}
+
+
+

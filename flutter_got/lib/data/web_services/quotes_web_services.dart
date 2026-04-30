@@ -1,15 +1,13 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_got/constants/strings.dart';
 
+class QuotesWebServices {
 
-class CharactersWebServices {
   late Dio dio;
 
-  CharactersWebServices() {
+  QuotesWebServices() {
     BaseOptions options = BaseOptions(
-      baseUrl: characterBaseurl,
+      baseUrl: quotesBaseurl,
       receiveDataWhenStatusError: true,
       connectTimeout: Duration(seconds: 20),
       receiveTimeout: Duration(seconds: 20),
@@ -17,17 +15,16 @@ class CharactersWebServices {
     dio = Dio(options);
   }
 
-   Future<List<dynamic>> getAllCharacters () async {
+
+    Future<Map<String, dynamic>> getRandomQuote() async {
 try{
-  Response response = await dio.get('characters');
-  print(response.data.toString());
+  Response response = await dio.get('random');
+  //print(response.data.toString());
   return response.data ;
   }catch(e){
-      print(e.toString());
-      return [];
+  //    print(e.toString());
+      return {};
       }
     }
   }
-
-
 
